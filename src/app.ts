@@ -60,3 +60,23 @@ app.get("/roast/:username", async (req, res) => {
     }
     
 });
+
+app.get("/leetcode/:username" , async(req,res)=>{
+
+    try {
+        const {username} = req.params;
+        const response = await axios.get(`https://alfa-leetcode-api.onrender.com/${username}`)
+
+        const user = await response.data;
+
+        const prompt = `${roastPrompt} for ${JSON.stringify(user)} dont roast github for now start with leetcode`;
+
+        const roast = await generateRoast(prompt);
+        res.send(roast)
+    } catch (error) {
+        
+        console.log(`Error Occured ` , error)
+    }
+})
+
+

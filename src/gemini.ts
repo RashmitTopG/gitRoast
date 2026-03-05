@@ -9,8 +9,7 @@ export async function generateRoast(prompt: string) {
     const result = await ai.models.generateContent({ model: "gemini-3.1-flash-lite-preview" ,
         contents : prompt
     });
-
- 
+  
   const response  = result.text;
   if(response === undefined){
     return;
