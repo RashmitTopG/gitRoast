@@ -19,7 +19,7 @@ dotenv_1.default.config();
 const ai = new genai_1.GoogleGenAI({});
 function generateRoast(prompt) {
     return __awaiter(this, void 0, void 0, function* () {
-        const result = yield ai.models.generateContent({ model: "gemini-3-flash-preview",
+        const result = yield ai.models.generateContent({ model: "gemini-3.1-flash-lite-preview",
             contents: prompt
         });
         const response = result.text;
