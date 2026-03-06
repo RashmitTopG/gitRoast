@@ -4,10 +4,13 @@ dotenv.config();
 import express, { json } from "express"
 import axios from "axios"
 import {generateRoast} from "./gemini";
+import cors from "cors";
 
 const app = express()
 const PORT = 3000;
 const roastPrompt = process.env.ROAST_PROMPT;
+
+app.use(cors());
 
 app.get("/" , (req,res)=>{
     res.send("Hello World")
@@ -78,5 +81,4 @@ app.get("/leetcode/:username" , async(req,res)=>{
         console.log(`Error Occured ` , error)
     }
 })
-
 
