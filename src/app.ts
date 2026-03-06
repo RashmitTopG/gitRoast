@@ -11,6 +11,7 @@ const PORT = 3000;
 const roastPrompt = process.env.ROAST_PROMPT;
 
 app.use(cors());
+app.options("*", cors());
 
 app.get("/" , (req,res)=>{
     res.send("Hello World")
